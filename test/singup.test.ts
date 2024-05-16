@@ -42,7 +42,7 @@ test("Não deve criar um passageiro se o nome for inválido", async function () 
         isPassenger: true,
     }
     const outputSignup = await signup(input);
-    expect(outputSignup).toBe(-3);
+    await expect(() => signup(input)).rejects.toThrow(new Error("Invalid name"));
 });
 
 test("Não deve criar um passageiro se o email for inválido", async function () {
@@ -53,7 +53,7 @@ test("Não deve criar um passageiro se o email for inválido", async function ()
         isPassenger: true,
     }
     const outputSignup = await signup(input);
-    expect(outputSignup).toBe(-2);
+    await expect(() => signup(input)).rejects.toThrow(new Error("Invalid email"));
 });
 
 test("Não deve criar um passageiro se o cpf for inválido", async function () {
@@ -64,7 +64,7 @@ test("Não deve criar um passageiro se o cpf for inválido", async function () {
         isPassenger: true,
     }
     const outputSignup = await signup(input);
-    expect(outputSignup).toBe(-1);
+    await expect(() => signup(input)).rejects.toThrow(new Error("Invalid cpf"));
 });
 
 test("Não deve criar um passageiro se a conta já existe", async function () {
@@ -76,7 +76,7 @@ test("Não deve criar um passageiro se a conta já existe", async function () {
     }
     await signup(input);
     const outputSignup = await signup(input);
-    expect(outputSignup).toBe(-4);
+    await expect(() => signup(input)).rejects.toThrow(new Error("Already exists"));
 });
 
 test("Não deve criar a conta de um motorista se a placa for inválida", async function () {
@@ -88,5 +88,5 @@ test("Não deve criar a conta de um motorista se a placa for inválida", async f
         isDriver: true,
     }
     const outputSignup = await signup(input);
-    expect(outputSignup).toBe(-5);
+    await expect(() => signup(input)).rejects.toThrow(new Error("Invalid plate"));
 });
