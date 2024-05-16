@@ -1,20 +1,12 @@
 Code Smells
 
-1 - Nomes ruins
-    * renomear variáveis
+- nome de variáveis
 
-2 - Linhas em branco
-    * apagar
+- tratamento de erro
 
-3 - Codigo morto
-    * apagar
+- condições aninhadas
 
-4 - Comentários
-    * renomear
+- Comentários
 
-5 - Condições aninhadas
-    * inverter e cláusula  guarda
+- números mágicos
 
-6 - Tratamento inadequado de erros
-
-7 - Variáveis declaradas longe da sua utilização
